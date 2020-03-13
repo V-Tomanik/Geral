@@ -1,10 +1,11 @@
+# coding=utf-8
 import random as rd
 class ponto:
    def __init__ (self,x,y):
       self._x = x
       self._y = y
    
-   def get_coordenates_x(self):
+   def get_coordenate_x(self):
       return self._x
 
    def get_coordenate_y(self):
@@ -34,37 +35,19 @@ class ponto:
       
 
 class centroid(ponto):
-   def __init__(self,points_list):
-      #todo: Fazer a criação através dos pontos importados, e através do init da classe mãe   
-      self.point_list = points_list
+    def create_centroid_x(self):
+       list = [i.get_coordenate_x() for i in self.points_list]
+       list = sorted(self.point_list.get_coordenate_x())
+       return rd.uniform(list[0],list[-1])
+
+    def create_centroid_y(self):
+       list = [i.get_coordenate_y() for i in self.points_list]
+       list = sorted(self.point_list.get_coordenate_y())
+       return rd.uniform(list[0],list[-1])
 
 
-   def create_centroid_x(self):
-      iterations = 0
-      for point in self.point_list:
-         x = point.get_coordenates_x()
-         if iterations == 0:
-            min_x = x 
-            max_x  = x
-         if x >= max_x:
-            max_x = x
-         if x <= min_x:
-            min_x = x
-         iterations +=1
-      print(min_x,max_x)   
-      return rd.uniform(min_x,max_x)
-   
-   def create_centroid_y(self):
-      iterations = 0
-      for point in self.point_list:
-         y = point.get_coordenates_y()
-         if iterations == 0:
-            min_y = y 
-            max_y  = y
-         if y > max_y:
-            max_y = y
-         if y < min_y:
-            min_y = y
-      return rd.uniform(min_y,max_y)    
-   
+    def __init__(self,points_list):
+#todo: Fazer a criação através dos pontos importados, e através do init da class    ...e mãe
+    self.points_list = points_list
+    super(centroid,self).__init__(self.create_centroid_x(),self.create_centroid_y(    ...))
 
