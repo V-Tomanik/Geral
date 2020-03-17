@@ -1,12 +1,12 @@
 #coding=utf-8
 import random
 import classes as cl
-
+import pandas as pd
+import matplotlib.pyplot as plt
 
 
 
 ####### INTERATION FUNCTIONS #############
-
 def create_group_list(group,points):
    list =[]
    for p in points:
@@ -26,6 +26,12 @@ def kmeans_interation(list_of_points,list_centroids):
 
 
 ###### CREATION FUNCTIONS ###############
+def create_points():
+   df = pd.read_csv(r'C:\Users\Victor\Documents\pontos.csv')
+   print('This is your list of points:', df)
+   list_of_points =[cl.ponto(row.x,row.y) for index, row in df.iterrows()]
+   return list_of_points
+
 
 def create_centroids(list_of_points):
    list_centroids = []
@@ -35,15 +41,11 @@ def create_centroids(list_of_points):
       list_centroids[i].set_group(i) 
    return list_centroids
 
-def create_points():
-   import_fim = 'Nao' 
-   list_points = []
-   while import_fim not in ('s','sim','SIM'):
-      x = int(input('Digite a coordenada X: '))
-      y = int(input('Digite a coordenada Y: '))
-      import_fim = input('Import Finalizado? :')
-      list_points.append(cl.ponto(x,y))
-   return list_points
-
 ####### VISUALIZATION FUNCTIONS ############
 #todo: Create Functions for visualization
+def visualization(list_of_points,list_of_centroids):
+      df_ponto = pd.DataFrame([vars(point) for point in list_of_points], columns=['x','y'])
+      df_centroid = pd.DataFrame([vars(point) for point in list_of_centroids], columns=['x','y'])
+      graph =  df_ponto.plot.scatter(x='x',y='y',color = 'DarkBlue',label ='Pontos')
+      df_centroid.plot.scatter(x='x',y='y',color = 'Red', label = 'Centroid',ax=graph)
+      plt.show()
