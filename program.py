@@ -2,7 +2,8 @@
 import functions as fc
 
 #Cria os pontos
-list_of_points = fc.create_points()
+dataframe = fc.read_csv(r'C:\Users\Victor\Documents\pontos.csv')
+list_of_points = fc.create_points(dataframe)
 #Cria os centroids 
 list_centroids=fc.create_centroids(list_of_points)
  
@@ -15,3 +16,5 @@ while pronto != 'sim':
    fc.visualization(list_of_points,list_centroids)
    fc.kmeans_interation(list_of_points,list_centroids)
    pronto = input('Termino:')
+for centroid in list_centroids:
+   print(centroid.x,centroid.y)
