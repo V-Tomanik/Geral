@@ -52,4 +52,3 @@ class centroid(ponto):
    def centroid_move(self,list_of_points):
       self.x =np.mean([i.x for i in list_of_points])
       self.y =np.mean([i.y for i in list_of_points])
-      

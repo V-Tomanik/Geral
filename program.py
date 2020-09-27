@@ -2,19 +2,19 @@
 import functions as fc
 
 #Cria os pontos
-dataframe = fc.read_csv(r'C:\Users\Victor\Documents\pontos.csv')
+dataframe = fc.read_csv(r'~/Documents/clientes(1).csv')
 list_of_points = fc.create_points(dataframe)
-#Cria os centroids 
+#Cria os centroids
 list_centroids=fc.create_centroids(list_of_points)
- 
+
 fc.visualization(list_of_points,list_centroids)
 
 #Aloca os pontos aos centroids mais próximos
 fc.kmeans_interation(list_of_points,list_centroids)
 pronto = 'nao'
 while pronto != 'sim':
-   fc.visualization(list_of_points,list_centroids)
-   fc.kmeans_interation(list_of_points,list_centroids)
-   pronto = input('Termino:')
+    fc.visualization(list_of_points,list_centroids)
+    fc.kmeans_interation(list_of_points,list_centroids)
+    pronto = input('Termino:')
 for centroid in list_centroids:
-   print(centroid.x,centroid.y)
+    print(centroid.x,centroid.y)
