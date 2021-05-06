@@ -1,5 +1,5 @@
 #coding=utf-8
-import random
+from random import randrange
 import classes as cl
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -58,3 +58,19 @@ def visualization(list_of_points,list_of_centroids):
       graph =  df_ponto.plot.scatter(x='x',y='y',color = 'DarkBlue',label ='Pontos')
       df_centroid.plot.scatter(x='x',y='y',color = 'Red', label = 'Centroid',ax=graph)
       plt.show()
+
+
+####### CREATE DATA  ############
+def create_data(num_points,num_groups):
+    data=[]
+    points_group = num_points//num_groups
+    for i in range(num_groups):
+        x_center = randrange(-200,200)
+        y_center = randrange(-200,200)    
+        for j in range(points_group):
+            points={}
+            points['x']= x_center + randrange(-20,20)
+            points['y']= y_center + randrange(-20,20)
+            data.append(points)
+    df = pd.DataFrame(data)
+    return df

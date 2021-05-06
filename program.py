@@ -2,7 +2,7 @@
 import functions as fc
 
 #Cria os pontos
-dataframe = fc.read_csv(r'~/Documents/clientes(1).csv')
+dataframe = fc.create_data(100,4)
 list_of_points = fc.create_points(dataframe)
 #Cria os centroids
 list_centroids=fc.create_centroids(list_of_points)
