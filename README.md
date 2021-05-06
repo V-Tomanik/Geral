@@ -6,7 +6,7 @@ meu Python
 
 Todo: Verificar acertividade atraves do SKLEARN.Kmeans para comparar resultado 
 
-Imagens das iterações produzidas:
+Exemplo de imagens das iterações produzidas:
 
 Iteracao 1
 
