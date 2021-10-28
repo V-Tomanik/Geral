@@ -1,10 +1,10 @@
 # Projeto Kmeans
+Projeto de estudo arquivado,
+Continuação em my-scikit
 
 Meu projeto pessoal para implementar um algoritmo de clusterização usando o método de Kmeans,
 existem diversas bibliotecas de fácil uso porém criando meu próprio para aprender sobre GIT e melhorar
-meu Python
-
-Projeto de estudo descontinuado
+meu Python.
 
 Exemplo de imagens das iterações produzidas:
 
